@@ -1,0 +1,23 @@
+{
+  "name": "my-vue3-app",
+  "version": "0.0.1",
+  "main": "dist/electron/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vuedx-typecheck . && vite build"
+  },
+  "dependencies": {
+    "@vitejs/plugin-vue": "^5.1.1",
+    "vite-plugin-electron": "^0.28.7",
+    "vue": "^3.0.4"
+  },
+  "devDependencies": {
+    "@vue/compiler-sfc": "^3.0.4",
+    "@vuedx/typecheck": "^0.3.1-insiders-1606311019.0",
+    "@vuedx/typescript-plugin-vue": "^0.3.1-insiders-1606311019.0",
+    "electron": "^31.3.1",
+    "electron-builder": "^24.13.3",
+    "typescript": "^4.1.2",
+    "vite": "^5.3.5"
+  }
+}
