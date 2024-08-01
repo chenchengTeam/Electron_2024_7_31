@@ -12,6 +12,7 @@ const createWindow = (): void => {
     transparent: false,
     backgroundColor: '#00000000',
     show: false,
+    alwaysOnTop: true, //窗口是否总是显示在其他窗口之前
     autoHideMenuBar: true,
     icon: join(__dirname, '../../resources/icon.png'),
     ...(process.platform === 'linux' ? { icon } : {}),

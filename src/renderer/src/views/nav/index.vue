@@ -2,12 +2,15 @@
   <!-- 自定义全部 导航 -->
   <div class="global-navBar">
     <div class="myLogo">dacheng</div>
-
+    s
+    <div class="anchor noDrag" title="固定" @click="setWin('anchor')">
+      <SvgIcon name="anchor" size="15" :color="`${navStatus.anchor ? '#00FA9A' : '#fff'}`" />
+    </div>
     <div class="mini noDrag" title="最小化" @click="setWin('min')">
       <SvgIcon name="minimum" size="15" :color="'#fff'" />
     </div>
     <div title="最大化" class="max noDrag" @click="setWin('max')">
-      <SvgIcon name="maximum-big" size="10" :color="'#fff'" />
+      <SvgIcon :name="navStatus.max ? 'maximum-big' : 'maximum-small'" size="10" />
     </div>
     <div title="关闭" class="close noDrag" @click="setWin('close')">
       <SvgIcon name="close" size="10" :color="'#fff'" />
@@ -17,8 +20,19 @@
 
 <script setup lang="ts">
 import SvgIcon from '@renderer/views/components/svg-icon.vue'
+import { reactive } from 'vue'
+
+// TODO： 状态管理
+const navStatus = reactive({
+  anchor: true,
+  max: false
+})
+
 // TODO： 窗口交互
-const setWin = (type) => {
+const setWin = (type: string) => {
+  // 状态取反
+  navStatus[type] = !navStatus[type]
+  // 管道通讯
   window.electron.ipcRenderer.send(type)
 }
 </script>
@@ -51,7 +65,10 @@ const setWin = (type) => {
     -webkit-app-region: no-drag;
     width: 30px;
     height: 100%;
-    background-color: #333;
+
+    &:hover {
+      background-color: #333;
+    }
   }
 }
 </style>
