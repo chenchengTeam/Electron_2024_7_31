@@ -1,6 +1,8 @@
-import './assets/main.css'
+//公共样式
+import '@renderer/design/index.scss'
 
 import { createApp } from 'vue'
+
 import App from './App.vue'
 
 createApp(App).mount('#app')

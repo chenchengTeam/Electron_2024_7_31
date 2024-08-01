@@ -15,6 +15,14 @@ export default defineConfig({
         '@renderer': resolve('src/renderer/src')
       }
     },
-    plugins: [vue()]
+    plugins: [vue()],
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // 必须配置 才可全局使用 定义的css
+          additionalData: `@use "@renderer/design/var.scss" as *; `
+        }
+      }
+    }
   }
 })

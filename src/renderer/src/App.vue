@@ -10,4 +10,4 @@ const versions = reactive({ ...window.electron.process.versions })
 console.log(' versions :', versions)
 </script>
 
-<template>{{ versions }}</template>
+<template>node: {{ versions.node }}</template>
