@@ -9,7 +9,7 @@ const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
     width: 300,
     height: 150,
-    transparent: true,
+    transparent: false,
     backgroundColor: '#00000000',
     show: false,
     autoHideMenuBar: true,
@@ -23,14 +23,18 @@ const createWindow = (): void => {
   })
 
   // 缩小
-  ipcMain.on('min', () => mainWindow.minimize())
+  ipcMain.on('min', () => {
+    console.log('缩小')
+    mainWindow.minimize()
+  })
 
   // 放大
   ipcMain.on('max', () => {
-    console.log(' 放大吗~~~ :')
     if (mainWindow.isMaximized()) {
       mainWindow.restore()
+      console.log('恢复')
     } else {
+      console.log('最大化')
       mainWindow.maximize()
     }
   })

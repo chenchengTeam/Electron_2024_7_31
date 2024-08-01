@@ -1,4 +1,17 @@
+<template>
+  <div class="container">
+    <!-- 全局导航 -->
+    <NavBar style="height: 20px" />
+    <!-- 自适应主体布局 -->
+    <fit-layout-v3 :width="720" :height="460">
+      <!-- 时钟 -->
+      <clock />
+    </fit-layout-v3>
+  </div>
+</template>
+
 <script setup lang="ts">
+import NavBar from '@renderer/views/nav/index.vue'
 import { reactive } from 'vue'
 // TODO: 版本信息
 const versions = reactive({ ...window.electron.process.versions })
@@ -9,17 +22,6 @@ const versions = reactive({ ...window.electron.process.versions })
 console.log(' Electron主体的版本 :', versions)
 </script>
 
-<template>
-  <div class="container">
-    <!-- 全局导航 -->
-    <global-navBar v-if="true" style="height: 15px" />
-    <!-- 自适应主体布局 -->
-    <fit-layout-v3 :width="720" :height="460" v-if="true">
-      <!-- 时钟 -->
-      <clock />
-    </fit-layout-v3>
-  </div>
-</template>
 <style lang="scss" scoped>
 @import '@renderer/design/hooks.scss';
 .container {
