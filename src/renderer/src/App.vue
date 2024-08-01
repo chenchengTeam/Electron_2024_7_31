@@ -10,4 +10,14 @@ const versions = reactive({ ...window.electron.process.versions })
 console.log(' versions :', versions)
 </script>
 
-<template>node: {{ versions.node }}</template>
+<template>
+  <div class="container">node: {{ versions.node }}</div>
+</template>
+<style lang="scss" scoped>
+@import '@renderer/design/hooks.scss';
+.container {
+  width: 100%;
+  height: 100%;
+  @include center;
+}
+</style>
