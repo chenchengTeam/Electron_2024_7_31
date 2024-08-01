@@ -1,5 +1,5 @@
 # electron-clock
 
-开源的时钟 基于Electron-vite+Vue3+Ts+Vite
+ 基于Electron-vite+Vue3+Ts+Vite 时钟
 
 图片： ![alt text](image.png)
