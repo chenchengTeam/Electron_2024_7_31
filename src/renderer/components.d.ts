@@ -9,7 +9,5 @@ declare module 'vue' {
   export interface GlobalComponents {
     Clock: typeof import('./src/components/global/clock.vue')['default']
     FitLayoutV3: typeof import('./src/components/global/fit-layout-v3.vue')['default']
-    GlobalNavBar: typeof import('./src/components/global/global-navBar.vue')['default']
-    GlobalSvg: typeof import('./src/components/global/global-svg.vue')['default']
   }
 }
