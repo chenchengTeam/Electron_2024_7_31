@@ -3,12 +3,14 @@ import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
 
-// TODO：主进程
+// TODO：主进程 里面的consloe.log() 都在终端里
 const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 250,
     height: 130,
+    x: 1500, // 初始化出现的位置 x
+    y: 700, // 初始化出现的位置 y
     transparent: false,
     backgroundColor: '#00000000',
     show: false,
@@ -66,6 +68,7 @@ const createWindow = (): void => {
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
+    // 读文件 入口文件
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
 }
