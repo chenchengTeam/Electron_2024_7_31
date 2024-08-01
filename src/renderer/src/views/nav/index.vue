@@ -63,7 +63,7 @@ const setWin = (type: string) => {
     @include center;
     color: white;
     -webkit-app-region: no-drag;
-    width: 30px;
+    width: 25px;
     height: 100%;
 
     &:hover {

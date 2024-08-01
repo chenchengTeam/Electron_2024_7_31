@@ -8,7 +8,7 @@ const createWindow = (): void => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 300,
-    height: 150,
+    height: 130,
     transparent: false,
     backgroundColor: '#00000000',
     show: false,
@@ -21,6 +21,18 @@ const createWindow = (): void => {
       sandbox: false
     },
     frame: false //关闭原生导航栏
+  })
+
+  // 固定 取消固定
+  ipcMain.on('anchor', () => {
+    console.log('固定、取消固定')
+    if (mainWindow.isAlwaysOnTop()) {
+      mainWindow.setAlwaysOnTop(false)
+      console.log('窗口不再始终在顶层。')
+    } else {
+      mainWindow.setAlwaysOnTop(true)
+      console.log('窗口现在始终在顶层。')
+    }
   })
 
   // 缩小

@@ -25,6 +25,7 @@ console.log(' Electron主体的版本 :', versions)
 <style lang="scss" scoped>
 @import '@renderer/design/hooks.scss';
 .container {
+  padding: 5px;
   width: 100%;
   height: 100%;
   @include center;
